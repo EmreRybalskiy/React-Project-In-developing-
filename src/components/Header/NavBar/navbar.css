@@ -1,0 +1,36 @@
+.navbar {
+  flex-basis: 50%;
+  margin: auto;
+}
+.navbar ul {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.nav-link {
+  color: #000;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  margin: 0 10px;
+  transition: 0.5s linear;
+}
+
+.nav-link::after {
+  content: "";
+  width: 0px;
+  height: 0;
+  display: block;
+  transition: 0.5s;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+.nav-link:hover::after {
+  width: 100%;
+  height: 1px;
+  background: #fff;
+}

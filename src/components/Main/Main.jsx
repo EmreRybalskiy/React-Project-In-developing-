@@ -1,26 +1,22 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch } from "react-router-dom";
 
 import { Films } from "./Films/Films.jsx";
-import { Favorite } from "./Favorite/Favorite.jsx";
-import { About } from "./About/About.jsx";
-import { Greeting } from "./Greeting/Greeting.jsx";
+import { Favorites } from "./Favorites/Favorites.jsx";
+import { Home } from "./Home/Home.jsx";
 
-import './main.css'
+import "./main.css";
 
-const Main = () => {
-    return (
-        <div className="main">
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path="/" component={Greeting} />
-                    <Route path="/films" component={Films} />
-                    <Route path="/favorite" component={Favorite} />
-                    <Route path="/about" component={About} />
-                </Switch>
-            </BrowserRouter>
-        </div>
-    );
-}
-
-export default withRouter(Main)
+export const Main = () => {
+  return (
+    <div className="main">
+      <Route>
+        <Switch>
+          <Home exact path="/" />
+          <Films path="/films" />
+          <Favorites path="/favorites" />
+        </Switch>
+      </Route>
+    </div>
+  );
+};

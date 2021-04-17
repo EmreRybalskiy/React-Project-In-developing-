@@ -1,9 +1,5 @@
 .films {
-  height: inherit;
   display: flex;
-  background-color: bisque;
-}
-
-.films-holder {
-  width: 70%;
+  height: 100%;
+  justify-content: space-between;
 }
