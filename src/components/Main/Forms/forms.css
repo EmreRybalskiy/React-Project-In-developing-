@@ -1,0 +1,51 @@
+.signup,
+.signin {
+  border: 1px solid lightgrey;
+  max-width: 500px;
+  height: 500px;
+  margin: 150px auto auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 400px;
+  height: 400px;
+  margin: auto;
+}
+
+.form-signin {
+  max-width: 400px;
+  height: 200px;
+  justify-content: center;
+}
+
+.input-form {
+  font-size: 1.1em;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+.name-field {
+  color: #686868;
+}
+
+.name-field,
+.password {
+  font-size: 1.2em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recovery-link {
+  color: #008cff;
+  margin-right: -1px;
+}
+
+.form-btn {
+  font-size: 1.5em;
+  cursor: pointer;
+  margin-top: 20px;
+}
