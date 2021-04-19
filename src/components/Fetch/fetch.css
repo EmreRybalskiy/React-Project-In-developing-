@@ -1,0 +1,16 @@
+h1 {
+  text-align: center;
+}
+
+.holder-films {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.film-item {
+  width: calc(20% - 20px);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}

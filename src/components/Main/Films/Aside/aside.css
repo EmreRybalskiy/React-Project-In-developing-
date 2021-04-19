@@ -1,8 +1,11 @@
 .aside {
-  /* display: flex; */
-  /* flex-direction: column; */
-  background-color: lime;
   width: 20%;
   padding: 20px 20px 0 20px;
-  /* align-self: center; */
+}
+
+.search-input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 1.1em;
 }
