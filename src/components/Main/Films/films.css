@@ -1,6 +1,0 @@
-.films {
-  display: flex;
-  max-width: 100%;
-  min-height: calc(100vh - 80px - 71px);
-  background-color: gray;
-}
