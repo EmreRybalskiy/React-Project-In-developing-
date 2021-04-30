@@ -1,12 +1,12 @@
 import React from "react";
 
-import { Input } from "../../../Input/Input.jsx";
+import { Input } from "../../Input/Input.jsx";
 import "./aside.css";
 
 export const Aside = () => {
   return (
     <div className="aside">
-      <Input type="text" place="Searh film" class="search-input" />
+      <Input type="text" place="Searh product" class="search-input" />
       <div className="genres">
         <h3>Genres</h3>
         <div className="genre-holder">

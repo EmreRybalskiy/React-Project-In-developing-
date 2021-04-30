@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Input } from "../../Input/Input.jsx";
-import { Button } from "../../Button/Button.jsx";
+import { Input } from "../Input/Input.jsx";
+import { Button } from "../Button/Button.jsx";
 
 import "./forms.css";
 

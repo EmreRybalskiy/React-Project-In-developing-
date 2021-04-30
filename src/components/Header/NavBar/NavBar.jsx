@@ -5,13 +5,13 @@ import "./navbar.css";
 
 export const NavBar = () => {
   return (
-    <div className='navbar'>
+    <div className="navbar">
       <ul>
         <Link to="/" className="nav-link">
           Home
         </Link>
-        <Link to="/films" className="nav-link">
-          Films
+        <Link to="/catalog" className="nav-link">
+          Catalog
         </Link>
         <Link to="/favorites" className="nav-link">
           Favorites
