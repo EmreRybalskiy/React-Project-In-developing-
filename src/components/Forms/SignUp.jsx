@@ -5,35 +5,24 @@ import { gql } from "apollo-boost";
 import { Input } from "../Input/Input.jsx";
 import { Button } from "../Button/Button.jsx";
 
+import { SIGN_UP_MUTATION } from "./mutations.js";
+
 import "./forms.css";
 
 export const SignUp = () => {
-  const reg = gql`
-    mutation reg($login: String!, $pass: String!, $nick: String!) {
-      UserUpsert(user: { login: $login, password: $pass, nick: $nick }) {
-        _id
-        login
-        password
-        nick
-      }
-    }
-  `;
+  const [SignUp, { error }] = useMutation(SIGN_UP_MUTATION);
 
-  const [addTodo, { data }] = useMutation(reg);
-
-  // const { data, refetch } = useQuery(reg, {
-  //   variables: { login: "emre97", password: "228", nick : "emr10ka" },
-  // });
-
-  const click = () => {
-    addTodo({ variables: { login: "Emr", pass: "Emr", nick: "Emr" } });
+  const onSignUp = async () => {
+    const userData = await SignUp({
+      variables: { login: "Emre3", nick: "Emre3", password: "228" },
+    });
+    console.log("данные юзера после регистрации - ", userData);
   };
-  // console.log(data);
-  console.log(data);
+
   return (
     <div className="signup">
-      <form action="" className="form ">
-        <button onClick={click}>MUTATION</button>
+      <div action="" className="form ">
+        <button onClick={onSignUp}>MUTATION</button>
         <span className="name-field">Name</span>
         <Input type="text" class="input-form" />
         <span className="name-field">Last Name</span>
@@ -46,7 +35,7 @@ export const SignUp = () => {
         <span className="name-field">Confirm Password</span>
         <Input type="password" class="input-form" />
         <Button type="button" text="Create Accout" class="form-btn" />
-      </form>
+      </div>
     </div>
   );
 };
