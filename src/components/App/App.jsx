@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import { ApolloProvider } from "@apollo/react-hooks";
-import ApolloClient from "apollo-boost";
+import { ApolloProvider as Provider } from "@apollo/react-hooks";
+import { ApolloClient } from "apollo-client";
 import { ApolloLink } from "apollo-link";
 import { onError } from "apollo-link-error";
 import { HttpLink } from "apollo-link-http";
@@ -19,10 +19,6 @@ import { SignUp } from "../Forms/SignUp.jsx";
 import { RecoveryPassword } from "../Recovery/Recovery.jsx";
 
 import "./App.css";
-
-const clientParam = {
-  uri: "http://shop-roles.asmer.fs.a-level.com.ua/graphql",
-};
 
 const contextLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("token");
@@ -45,12 +41,22 @@ const onErrorLink = onError(({ graphQLErrors, networkError }) => {
   if (networkError) console.log(`[Network error]: ${networkError}`);
 });
 
-const client = new ApolloClient(clientParam);
+const httpLink = new HttpLink({
+  uri: "http://shop-roles.asmer.fs.a-level.com.ua/graphql",
+});
+
+const client = new ApolloClient({
+  link: ApolloLink.from([onErrorLink, contextLink, httpLink]),
+  cache: new InMemoryCache({
+    addTypename: true,
+    resultCaching: true,
+  }),
+});
 
 export function App() {
   return (
     <div className="app">
-      <ApolloProvider client={client}>
+      <Provider client={client}>
         {/* <Provider store={store}> */}
         <BrowserRouter>
           <Header />
@@ -62,7 +68,7 @@ export function App() {
           <Route path="/recovery" component={RecoveryPassword} />
         </BrowserRouter>
         {/* </Provider> */}
-      </ApolloProvider>
+      </Provider>
       <Footer />
     </div>
   );
