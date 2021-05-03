@@ -22,13 +22,16 @@ import "./App.css";
 
 const contextLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("token");
-  console.log("token: ", token);
-  return {
-    headers: {
-      ...headers,
-      Authorization: token ? `Bearer ${token}` : null,
-    },
-  };
+  if (token !== "null" && token !== "undefined") {
+    return {
+      headers: {
+        ...headers,
+        Authorization: `Bearer ${token}`,
+      },
+    };
+  } else {
+    return false;
+  }
 });
 
 const onErrorLink = onError(({ graphQLErrors, networkError }) => {

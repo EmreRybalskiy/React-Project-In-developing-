@@ -74,7 +74,6 @@ export const SignIn = (props) => {
           text="Login"
           class="form-btn"
           onClick={() => {
-            console.log(userData);
             Login();
           }}
         />
