@@ -1,6 +1,5 @@
-import React from "react";
-import { useQuery, useMutation } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
+import React, { useState } from "react";
+import { useMutation } from "@apollo/react-hooks";
 
 import { Input } from "../Input/Input.jsx";
 import { Button } from "../Button/Button.jsx";
@@ -11,10 +10,27 @@ import "./forms.css";
 
 export const SignUp = () => {
   const [SignUp, { error }] = useMutation(SIGN_UP_MUTATION);
+  const [signUpData, setSignUpData] = useState({
+    login: "",
+    nick: "",
+    password: "",
+  });
+  console.log(signUpData.login, signUpData.nick, signUpData.password);
+
+  const changeData = ({ target }) => {
+    setSignUpData((prev) => ({
+      ...prev,
+      [target.name]: target.value,
+    }));
+  };
 
   const onSignUp = async () => {
     const userData = await SignUp({
-      variables: { login: "Emre3", nick: "Emre3", password: "228" },
+      variables: {
+        login: signUpData.login,
+        nick: signUpData.nick,
+        password: signUpData.password,
+      },
     });
     console.log("данные юзера после регистрации - ", userData);
   };
@@ -22,19 +38,39 @@ export const SignUp = () => {
   return (
     <div className="signup">
       <div action="" className="form ">
-        <button onClick={onSignUp}>MUTATION</button>
-        <span className="name-field">Name</span>
-        <Input type="text" class="input-form" />
-        <span className="name-field">Last Name</span>
-        <Input type="text" class="input-form" />
         <span className="name-field">Email</span>
-        <Input type="email" class="input-form" />
+        <Input
+          type="email"
+          class="input-form"
+          name="login"
+          value={signUpData.login}
+          onChange={changeData}
+        />
+        <span className="name-field">Name</span>
+        <Input
+          type="text"
+          class="input-form"
+          name="nick"
+          value={signUpData.nick}
+          onChange={changeData}
+        />
         <span className="name-field password">{"Password "}</span>
         <span className="recovery-field"></span>
-        <Input type="password" class="input-form" />
+        <Input
+          type="password"
+          class="input-form"
+          name="password"
+          value={signUpData.password}
+          onChange={changeData}
+        />
         <span className="name-field">Confirm Password</span>
         <Input type="password" class="input-form" />
-        <Button type="button" text="Create Accout" class="form-btn" />
+        <Button
+          type="button"
+          text="Create Accout"
+          class="form-btn"
+          onClick={onSignUp}
+        />
       </div>
     </div>
   );
