@@ -15,7 +15,6 @@ export const SignUp = () => {
     nick: "",
     password: "",
   });
-  console.log(signUpData.login, signUpData.nick, signUpData.password);
 
   const changeData = ({ target }) => {
     setSignUpData((prev) => ({
