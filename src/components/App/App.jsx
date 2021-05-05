@@ -12,13 +12,11 @@ import { Header } from "../Header/Header.jsx";
 import { Footer } from "../Footer/Footer.jsx";
 
 import { Main } from "../Main/Main.jsx";
-import { Favorites } from "../Favorites/Favorites.jsx";
 import { Home } from "../Home/Home.jsx";
 import { SignIn } from "../Forms/SignIn.jsx";
 import { SignUp } from "../Forms/SignUp.jsx";
-import { Cart } from "../Cart/Cart.jsx";
+import { Basket } from "../Basket/Basket.jsx";
 import { Profile } from "../Profile/Profile.jsx";
-import { RecoveryPassword } from "../Recovery/Recovery.jsx";
 
 import "./App.css";
 
@@ -56,22 +54,19 @@ const client = new ApolloClient({
 });
 
 export function App() {
+  const ref = React.createRef()
   return (
-    <div className="app">
+    <div className="app light-theme">
       <Provider client={client}>
-        {/* <Provider store={store}> */}
         <BrowserRouter>
-          <Header />
+          <Header/>
           <Route exact path="/" component={Home} />
           <Route path="/catalog" component={Main} />
-          {/* <Route path="/favorites" component={Favorites} /> */}
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/profile" component={Profile} />
-          <Route path="/cart" component={Cart} />
-          <Route path="/recovery" component={RecoveryPassword} />
+          <Route path="/basket" component={Basket} />
         </BrowserRouter>
-        {/* </Provider> */}
       </Provider>
       <Footer />
     </div>

@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import userProfileImage from "../../../../src/img/userProfileImage.png";
 import shoppingCart from "../../../../src/img/shopping-cart.png";
 
-import "./authentication.css";
+import "./user.css";
 
-export const Authentication = () => {
+export const User = () => {
   const token = localStorage.getItem("token");
   const checkToken = token && token !== "null";
 
   return (
-    <div className="authentication">
+    <div className="user">
       <img src={userProfileImage} alt="login" className="userProfileImage" />
       {checkToken ? (
         <Link to="/profile" className="login-link">
@@ -22,7 +22,7 @@ export const Authentication = () => {
           Login
         </Link>
       )}
-      <Link to="/cart" className="cart-link">
+      <Link to="/basket" className="cart-link">
         <img src={shoppingCart} alt="shopping-cart" className="shoppingCart" />
       </Link>
     </div>

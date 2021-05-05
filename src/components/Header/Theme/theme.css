@@ -1,0 +1,19 @@
+.theme {
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.sun {
+  width: 30px;
+  height: 30px;
+  /* height: 20px; */
+  margin: auto;
+}
+
+.moon {
+  margin: auto;
+  width: 25px;
+  height: 25px;
+  /* height: 20px; */
+}
