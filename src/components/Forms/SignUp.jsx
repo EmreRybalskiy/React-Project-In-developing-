@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 
 import { Input } from "../Input/Input.jsx";
@@ -70,6 +71,9 @@ export const SignUp = () => {
           class="form-btn"
           onClick={onSignUp}
         />
+        <Link to="/signin" className="create-btn">
+          Have account?
+        </Link>
       </div>
     </div>
   );

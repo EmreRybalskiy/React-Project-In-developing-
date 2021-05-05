@@ -46,3 +46,8 @@
   cursor: pointer;
   margin-top: 20px;
 }
+
+.create-btn {
+  text-decoration: none;
+  color: rgb(67, 67, 250);
+}

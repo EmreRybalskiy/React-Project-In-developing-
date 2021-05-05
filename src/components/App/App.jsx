@@ -16,22 +16,20 @@ import { Favorites } from "../Favorites/Favorites.jsx";
 import { Home } from "../Home/Home.jsx";
 import { SignIn } from "../Forms/SignIn.jsx";
 import { SignUp } from "../Forms/SignUp.jsx";
+import { Cart } from "../Cart/Cart.jsx";
 import { RecoveryPassword } from "../Recovery/Recovery.jsx";
 
 import "./App.css";
 
 const contextLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("token");
+  const headersObj = {
+    ...headers,
+  };
   if (token !== "null" && token !== "undefined") {
-    return {
-      headers: {
-        ...headers,
-        Authorization: `Bearer ${token}`,
-      },
-    };
-  } else {
-    return false;
+    headersObj.Authorization = `Brearer ${token}`;
   }
+  return headersObj;
 });
 
 const onErrorLink = onError(({ graphQLErrors, networkError }) => {
@@ -68,6 +66,7 @@ export function App() {
           <Route path="/favorites" component={Favorites} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/cart" component={Cart} />
           <Route path="/recovery" component={RecoveryPassword} />
         </BrowserRouter>
         {/* </Provider> */}
