@@ -1,17 +1,25 @@
 .authentication {
   display: flex;
-  justify-content: flex-end;
-  flex-basis: 50%;
-  text-align: right;
+  /* flex-basis: 10%; */
   margin: auto 25px auto;
-  text-transform: uppercase;
 }
 
 .userProfileImage,
 .shoppingCart {
   width: 20px;
+  height: 20px;
 }
 
 .authBtn {
   font-size: 1.2em;
+}
+
+.login-link {
+  font-size: 0.8em;
+  color: #000;
+  text-decoration: none;
+  margin: auto 15px auto 5px;
+}
+.cart-link {
+  height: 20px;
 }

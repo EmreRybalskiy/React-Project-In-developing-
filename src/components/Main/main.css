@@ -1,5 +1,5 @@
 .main {
   display: flex;
   max-width: 100%;
-  min-height: calc(100vh - 80px - 72px);
+  min-height: calc(100vh - 50px - 72px);
 }

@@ -1,5 +1,5 @@
 .navbar {
-  flex-basis: 50%;
+  /* flex-basis: 20%; */
   margin: auto;
 }
 .navbar ul {
@@ -21,7 +21,7 @@
 .nav-link::after {
   content: "";
   width: 0px;
-  height: 0;
+  height: 1px;
   display: block;
   transition: 0.5s;
 }

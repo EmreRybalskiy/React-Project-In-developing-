@@ -1,7 +1,10 @@
+.header-holder {
+  background-color: lightgrey;
+}
 .header {
-  max-width: 100%;
+  max-width: 1200px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
-  background-color: lightgrey;
-  height: 80px;
+  height: 50px;
 }

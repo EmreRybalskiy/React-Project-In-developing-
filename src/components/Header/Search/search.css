@@ -1,0 +1,22 @@
+.search {
+  /* flex-basis: 20%; */
+  margin: auto;
+}
+
+.header-search,
+.header-btn {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.search {
+  width: 50%;
+  margin-right: 15px;
+}
+
+.btn {
+  width: 80px;
+  cursor: pointer;
+}

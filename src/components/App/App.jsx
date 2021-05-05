@@ -17,6 +17,7 @@ import { Home } from "../Home/Home.jsx";
 import { SignIn } from "../Forms/SignIn.jsx";
 import { SignUp } from "../Forms/SignUp.jsx";
 import { Cart } from "../Cart/Cart.jsx";
+import { Profile } from "../Profile/Profile.jsx";
 import { RecoveryPassword } from "../Recovery/Recovery.jsx";
 
 import "./App.css";
@@ -63,9 +64,10 @@ export function App() {
           <Header />
           <Route exact path="/" component={Home} />
           <Route path="/catalog" component={Main} />
-          <Route path="/favorites" component={Favorites} />
+          {/* <Route path="/favorites" component={Favorites} /> */}
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/profile" component={Profile} />
           <Route path="/cart" component={Cart} />
           <Route path="/recovery" component={RecoveryPassword} />
         </BrowserRouter>
