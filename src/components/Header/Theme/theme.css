@@ -4,16 +4,14 @@
   align-items: center;
 }
 
-.sun {
+.sun,
+.moon {
   width: 30px;
   height: 30px;
-  /* height: 20px; */
-  margin: auto;
+  cursor: pointer;
 }
 
-.moon {
-  margin: auto;
-  width: 25px;
-  height: 25px;
-  /* height: 20px; */
+.sun:hover,
+.moon:hover {
+  transform: scale(1.1);
 }

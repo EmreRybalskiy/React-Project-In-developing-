@@ -1,58 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Input } from "../../Input/Input.jsx";
+
 import "./aside.css";
 
 export const Aside = () => {
+  const [state, setState] = useState(false);
+
+  const handleClick = () => {
+    if (state) {
+      setState(false);
+    }
+    setState(true);
+  };
+  console.log(state);
   return (
-    <div className="aside">
-      <Input type="text" place="Searh product" class="search-input" />
-      <div className="genres">
-        <h3>Genres</h3>
-        <div className="genre-holder">
-          <Input type="checkbox" name="Horror" />
-          <label for="Horror">Horror</label>
-        </div>
-        <div className="genre-holder">
-          <Input type="checkbox" name="Comedy" />
-          <label for="Comedy">Comedy</label>
-        </div>
-        <div className="genre-holder">
-          <Input type="checkbox" name="Action" />
-          <label for="Action">Action</label>
-        </div>
-        <div className="genre-holder">
-          <Input type="checkbox" name="Drama" />
-          <label for="Drama">Drama</label>
-        </div>
-        <div className="genre-holder">
-          <Input type="checkbox" name="Fantasy" />
-          <label for="Fantasy">Fantasy</label>
-        </div>
-      </div>
-      <div className="language">
-        <h3>Language</h3>
-        <div className="genre-holder">
-          <Input type="checkbox" name="english" />
-          <label for="english">English</label>
-        </div>
-        <div className="genre-holder">
-          <Input type="checkbox" name="spanish" />
-          <label for="spanish">Spanish</label>
-        </div>
-        <div className="genre-holder">
-          <Input type="checkbox" name="russian" />
-          <label for="russian">Russian</label>
-        </div>
-        <div className="genre-holder">
-          <Input type="checkbox" name="french" />
-          <label for="french">French</label>
-        </div>
-        <div className="genre-holder">
-          <Input type="checkbox" name="japanese" />
-          <label for="japanese">Japanese</label>
-        </div>
-      </div>
-    </div>
+    <aside className="aside">
+      <h5 className="price">Price</h5>
+      <span className="from">from</span>
+      <Input type="text" class="sum prev" />
+      <span className="to">to</span>
+      <Input type="text" class="sum after" />
+      <h5
+        className="sort"
+        onClick={() => {
+          handleClick();
+        }}
+      >
+        Sort
+      </h5>
+      <ul className="sort-menu price">
+        <li>Price high to low</li>
+        <li>Price low to high</li>
+      </ul>
+      <h5 className="category">Category</h5>
+      <ul className="sort-menu">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+    </aside>
   );
 };

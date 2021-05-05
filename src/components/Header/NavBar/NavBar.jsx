@@ -7,12 +7,12 @@ export const NavBar = () => {
   return (
     <div className="navbar">
       <ul>
-        <Link to="/" className="nav-link">
-          Home
-        </Link>
-        <Link to="/catalog" className="nav-link">
-          Catalog
-        </Link>
+        <li className="nav-link">
+          <Link to="/" className="link">Home</Link>
+        </li>
+        <li className="nav-link">
+          <Link to="/catalog"className="link">Catalog</Link>
+        </li>
       </ul>
     </div>
   );
