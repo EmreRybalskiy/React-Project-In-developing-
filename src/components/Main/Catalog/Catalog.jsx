@@ -18,7 +18,6 @@ export const Catalog = () => {
   const link = "//shop-roles.asmer.fs.a-level.com.ua/";
 
   const { data } = useQuery(query);
-  console.log(data);
   return (
     <div className="catalog-holder">
       <div>

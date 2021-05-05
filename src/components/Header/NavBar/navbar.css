@@ -1,5 +1,4 @@
 .navbar {
-  /* flex-basis: 20%; */
   margin: auto;
 }
 .navbar ul {
@@ -11,11 +10,8 @@
 .nav-link {
   color: #000;
   display: inline-block;
-  text-decoration: none;
   font-size: 1.3em;
-  text-transform: uppercase;
   margin: 0 10px;
-  transition: 0.5s linear;
 }
 
 .nav-link::after {
@@ -26,11 +22,21 @@
   transition: 0.5s;
 }
 
-.nav-link:hover {
-  color: #fff;
-}
 .nav-link:hover::after {
   width: 100%;
   height: 1px;
   background: #fff;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+  transition: 0.5s linear;
+}
+
+.link:hover {
+  color: #fff;
+}
+.link li {
+  list-style: none;
 }
