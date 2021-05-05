@@ -13,9 +13,6 @@ export const NavBar = () => {
         <Link to="/catalog" className="nav-link">
           Catalog
         </Link>
-        <Link to="/favorites" className="nav-link">
-          Favorites
-        </Link>
       </ul>
     </div>
   );

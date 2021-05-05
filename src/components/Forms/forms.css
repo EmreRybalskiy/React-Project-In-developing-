@@ -1,6 +1,6 @@
 .signup,
 .signin {
-  min-height: calc(100vh - 80px - 72px);
+  min-height: calc(100vh - 50px - 72px);
   display: flex;
   justify-content: center;
 }
@@ -45,4 +45,9 @@
   font-size: 1.5em;
   cursor: pointer;
   margin-top: 20px;
+}
+
+.create-btn {
+  text-decoration: none;
+  color: rgb(67, 67, 250);
 }

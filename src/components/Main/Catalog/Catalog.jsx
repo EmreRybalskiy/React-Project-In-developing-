@@ -21,12 +21,13 @@ export const Catalog = () => {
   console.log(data);
   return (
     <div className="catalog-holder">
-      <div>a</div>
       <div>
         {data &&
-          data.GoodFind.filter((product) => product.images).map((product) => {
-            return <img src={link + product.images[0].url} />;
-          })}
+          data.GoodFind.filter((product) => product.images).map(
+            (product, i) => {
+              return <img key={i} src={link + product.images[0].url} />;
+            }
+          )}
       </div>
     </div>
   );
