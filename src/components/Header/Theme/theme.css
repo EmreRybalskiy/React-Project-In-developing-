@@ -4,14 +4,14 @@
   align-items: center;
 }
 
-.sun,
-.moon {
+.light,
+.dark {
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
 
-.sun:hover,
-.moon:hover {
+.light:hover,
+.dark:hover {
   transform: scale(1.1);
 }
