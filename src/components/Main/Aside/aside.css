@@ -27,6 +27,7 @@
   padding: 10px;
   border-radius: 3px;
   border: 1px solid gray;
+  cursor: pointer;
 }
 
 .vision-menu {
@@ -45,8 +46,12 @@
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-
   border-top: 7px solid gray;
+  transition: 0.3s linear;
+}
+.arrow-bottom {
+  border-top: 0;
+  border-bottom: 7px solid gray;
 }
 
 .item p,
@@ -54,8 +59,10 @@
   margin: 0;
   padding: 0;
 }
-
-.sort-menu li {
+.category-menu {
+  transition: 1s linear;
+}
+.category-menu li {
   list-style: none;
   margin: 0;
   padding: 0;

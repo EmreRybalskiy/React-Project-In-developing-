@@ -54,9 +54,8 @@ const client = new ApolloClient({
 });
 
 export function App() {
-  const ref = React.createRef()
   return (
-    <div className="app light-theme">
+    <div className="app">
       <Provider client={client}>
         <BrowserRouter>
           <Header/>
