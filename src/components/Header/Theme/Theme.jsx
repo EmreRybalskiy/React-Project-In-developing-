@@ -3,40 +3,42 @@ import React, { useState } from "react";
 import light from "../../../img/sun.png";
 import dark from "../../../img/moon.png";
 
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "../../theme.js";
+import { GlobalStyles } from "../../global.js";
+
 import "./theme.css";
 
 export const Theme = () => {
-  const initialTheme = {
-    theme: "light",
-  };
-  const [theme, setTheme] = useState(initialTheme);
+  const [theme, setTheme] = useState("light");
 
-  const handleClick = ({ target }) => {
+  const toggleTheme = ({ target }) => {
     if (target.name === "dark") {
-      setTheme((initialTheme.theme = "dark"));
-
+      setTheme("dark");
     } else if (target.name === "light") {
-      setTheme((initialTheme.theme = "light"));
-
+      setTheme("light");
     }
   };
 
   return (
     <div className="theme">
-      <img
-        src={light}
-        alt="light"
-        className="light"
-        name="light"
-        onClick={handleClick}
-      />
-      <img
-        src={dark}
-        alt="dark"
-        className="dark"
-        name="dark"
-        onClick={handleClick}
-      />
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <img
+          src={light}
+          alt="light"
+          className="light"
+          name="light"
+          onClick={toggleTheme}
+        />
+        <img
+          src={dark}
+          alt="dark"
+          className="dark"
+          name="dark"
+          onClick={toggleTheme}
+        />
+      </ThemeProvider>
     </div>
   );
 };
