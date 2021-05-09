@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { ApolloProvider as Provider } from "@apollo/react-hooks";
 import { ApolloClient } from "apollo-client";
@@ -17,6 +17,10 @@ import { SignIn } from "../Forms/SignIn.jsx";
 import { SignUp } from "../Forms/SignUp.jsx";
 import { Basket } from "../Basket/Basket.jsx";
 import { Profile } from "../Profile/Profile.jsx";
+
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "../theme.js";
+import { GlobalStyles } from "../global.js";
 
 import "./App.css";
 
@@ -54,20 +58,34 @@ const client = new ApolloClient({
 });
 
 export function App() {
+  // const [theme, setTheme] = useState("light");
+
+  // const toggleTheme = () => {
+  //   if (theme === "light") {
+  //     setTheme("dark");
+  //   } else {
+  //     setTheme("light");
+  //   }
+  // };
+
   return (
     <div className="app">
-      <Provider client={client}>
-        <BrowserRouter>
-          <Header/>
-          <Route exact path="/" component={Home} />
-          <Route path="/catalog" component={Main} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/basket" component={Basket} />
-        </BrowserRouter>
-      </Provider>
-      <Footer />
+      {/* <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles /> */}
+        <Provider client={client}>
+          <BrowserRouter>
+            <Header />
+            {/* <button onClick={toggleTheme}>Toggle theme</button> */}
+            <Route exact path="/" component={Home} />
+            <Route path="/catalog" component={Main} />
+            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/basket" component={Basket} />
+          </BrowserRouter>
+        </Provider>
+        <Footer />
+      {/* </ThemeProvider> */}
     </div>
   );
 }
