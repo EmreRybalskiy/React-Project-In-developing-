@@ -24,7 +24,9 @@ export const Catalog = () => {
         {data &&
           data.GoodFind.filter((product) => product.images).map(
             (product, i) => {
-              return <img key={i} src={link + product.images[0].url} />;
+              return (
+                <img key={i} src={link + product.images[0].url} alt="product" />
+              );
             }
           )}
       </div>

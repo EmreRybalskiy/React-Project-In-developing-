@@ -10,7 +10,7 @@ import { SIGN_UP_MUTATION } from "./mutations.js";
 import "./forms.css";
 
 export const SignUp = () => {
-  const [SignUp, { error }] = useMutation(SIGN_UP_MUTATION);
+  const [SignUp] = useMutation(SIGN_UP_MUTATION);
   const [signUpData, setSignUpData] = useState({
     login: "",
     nick: "",
