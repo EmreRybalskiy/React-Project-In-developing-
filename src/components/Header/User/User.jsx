@@ -6,29 +6,26 @@ import shoppingCart from "../../../../src/img/shopping-cart.png";
 
 import "./user.css";
 
-export const User = () => {
-  const [value, setValue] = useState(false);
-  const token = localStorage.getItem("token");
+export const User = ({ isLoggetIn }) => {
+  const [isCorrectToken, setIsCorrectToken] = useState(isLoggetIn);
 
   const checkValue = () => {
-    if (token && token !== "null") {
-
-      setValue(true);
+    if (isLoggetIn && isLoggetIn !== "null") {
+      setIsCorrectToken(true);
     } else {
-
-      setValue(false);
+      setIsCorrectToken(false);
     }
   };
 
   useEffect(() => {
     checkValue();
-  }, [value]);
+  }, [isLoggetIn]);
 
   return (
     <div className="user">
       <img src={userProfileImage} alt="login" className="userProfileImage" />
-      <Link to={value ? "/profile" : "/signup"} className="login-link">
-        {value ? "Profile" : "Login"}
+      <Link to={isCorrectToken ? "/profile" : "/signup"} className="login-link">
+        {isCorrectToken ? "Profile" : "Login"}
       </Link>
       <Link to="/basket" className="shoppingCart-link">
         <img src={shoppingCart} alt="shopping-cart" className="shoppingCart" />

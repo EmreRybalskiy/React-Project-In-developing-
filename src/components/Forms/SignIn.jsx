@@ -9,13 +9,13 @@ import { Button } from "../Button/Button.jsx";
 
 import "./forms.css";
 
-export const SignIn = (props) => {
+export const SignIn = ({ setIsLoggetIn }) => {
   const [userData, setUserData] = useState({
     login: "",
     password: "",
   });
 
-  const [Login, { called, loading, data }] = useLazyQuery(SIGN_IN_QUERY, {
+  const [Login, { data }] = useLazyQuery(SIGN_IN_QUERY, {
     variables: {
       login: userData.login,
       password: userData.password,
@@ -32,18 +32,19 @@ export const SignIn = (props) => {
   useEffect(() => {
     if (data) {
       localStorage.setItem("token", data.login);
+      setIsLoggetIn(true);
     }
   }, [data]);
 
-  useEffect(() => {
-    if (called && !loading) {
-      props.history.push("/");
-    }
-  }, [called, loading]);
+  // useEffect(() => {
+  //   if (called && !loading) {
+  //     props.history.push("/");
+  //   }
+  // }, [called, loading]);
 
-  if (called && loading) {
-    return <div>...Loading</div>;
-  }
+  // if (called && loading) {
+  //   return <div>...Loading</div>;
+  // }
 
   return (
     <div className="signin">

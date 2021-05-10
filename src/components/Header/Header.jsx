@@ -9,7 +9,7 @@ import { User } from "./User/User.jsx";
 
 import "./header.css";
 
-export const Header = () => {
+export const Header = ({isLoggetIn}) => {
   return (
     <div className="header-holder">
       <div className="header">
@@ -18,7 +18,7 @@ export const Header = () => {
         <Search />
         <Contact />
         <Theme />
-        <User />
+        <User isLoggetIn={isLoggetIn}/>
       </div>
     </div>
   );

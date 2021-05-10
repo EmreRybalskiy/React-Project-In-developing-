@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 
 import "./profile.css";
 
-export const Profile = () => {
+export const Profile = ({ setIsLoggetIn }) => {
   const logOut = () => {
-    const token = localStorage.removeItem("token");
+    localStorage.removeItem("token");
+    setIsLoggetIn(false);
   };
   return (
     <div className="profile">

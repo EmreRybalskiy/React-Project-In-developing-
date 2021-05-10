@@ -18,10 +18,6 @@ import { SignUp } from "../Forms/SignUp.jsx";
 import { Basket } from "../Basket/Basket.jsx";
 import { Profile } from "../Profile/Profile.jsx";
 
-import { ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "../theme.js";
-import { GlobalStyles } from "../global.js";
-
 import "./App.css";
 
 const contextLink = setContext((_, { headers }) => {
@@ -56,36 +52,28 @@ const client = new ApolloClient({
     resultCaching: true,
   }),
 });
-
 export function App() {
-  // const [theme, setTheme] = useState("light");
-
-  // const toggleTheme = () => {
-  //   if (theme === "light") {
-  //     setTheme("dark");
-  //   } else {
-  //     setTheme("light");
-  //   }
-  // };
+  const getToken = localStorage.getItem("token");
+  const [isLoggetIn, setIsLoggetIn] = useState(getToken);
 
   return (
     <div className="app">
-      {/* <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-        <GlobalStyles /> */}
-        <Provider client={client}>
-          <BrowserRouter>
-            <Header />
-            {/* <button onClick={toggleTheme}>Toggle theme</button> */}
-            <Route exact path="/" component={Home} />
-            <Route path="/catalog" component={Main} />
-            <Route path="/signin" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/basket" component={Basket} />
-          </BrowserRouter>
-        </Provider>
-        <Footer />
-      {/* </ThemeProvider> */}
+      <Provider client={client}>
+        <BrowserRouter>
+          <Header isLoggetIn={isLoggetIn} />
+          <Route exact path="/" component={Home} />
+          <Route path="/catalog" component={Main} />
+          <Route path="/signin">
+            <SignIn setIsLoggetIn={setIsLoggetIn} />
+          </Route>
+          <Route path="/signup" component={SignUp} />
+          <Route path="/profile">
+            <Profile setIsLoggetIn={setIsLoggetIn} />
+          </Route>
+          <Route path="/basket" component={Basket} />
+        </BrowserRouter>
+      </Provider>
+      <Footer />
     </div>
   );
 }

@@ -7,10 +7,10 @@ import "./aside.css";
 export const Aside = () => {
   const [state, setState] = useState("arrow");
 
-  const dropMenu = ({ target }) => {
-    if (state == "arrow") {
+  const dropMenu = () => {
+    if (state === "arrow") {
       setState("arrow arrow-bottom");
-    } else if (state == "arrow arrow-bottom") {
+    } else if (state === "arrow arrow-bottom") {
       setState("arrow");
     }
   };
@@ -22,14 +22,12 @@ export const Aside = () => {
       <span className="to">to</span>
       <Input type="text" class="sum after" />
       <div className="item" onClick={dropMenu}>
-        <h5 className="field-name" className="category">
-          Category
-        </h5>
+        <h5 className="field-name">Category</h5>
         <div className="vision-menu">
           <div className={state}></div>
         </div>
       </div>
-      {state == "arrow arrow-bottom" && (
+      {state === "arrow arrow-bottom" && (
         <ul className="category-menu">
           <li>
             <Input type="checkbox" />
