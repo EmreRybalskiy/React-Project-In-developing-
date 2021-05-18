@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Input } from "../../Input/Input.jsx";
+import { Input } from '../../Input/Input.jsx';
 
-import "./aside.css";
+import './aside.css';
 
 export const Aside = () => {
-  const [state, setState] = useState("arrow");
+  const [state, setState] = useState('arrow');
 
   const dropMenu = () => {
-    if (state === "arrow") {
-      setState("arrow arrow-bottom");
-    } else if (state === "arrow arrow-bottom") {
-      setState("arrow");
+    if (state === 'arrow') {
+      setState('arrow arrow-bottom');
+    } else if (state === 'arrow arrow-bottom') {
+      setState('arrow');
     }
   };
   return (
@@ -27,23 +27,19 @@ export const Aside = () => {
           <div className={state}></div>
         </div>
       </div>
-      {state === "arrow arrow-bottom" && (
+      {state === 'arrow arrow-bottom' && (
         <ul className="category-menu">
           <li>
-            <Input type="checkbox" />
-            Food
+            <Input type="checkbox" />1
           </li>
           <li>
-            <Input type="checkbox" />
-            Phone
+            <Input type="checkbox" />2
           </li>
           <li>
-            <Input type="checkbox" />
-            Car
+            <Input type="checkbox" />3
           </li>
           <li>
-            <Input type="checkbox" />
-            Materials
+            <Input type="checkbox" />4
           </li>
         </ul>
       )}

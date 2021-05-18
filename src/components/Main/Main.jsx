@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import { Aside } from "./Aside/Aside.jsx";
-import { Catalog } from "./Catalog/Catalog.jsx";
+import { Aside } from './Aside/Aside.jsx';
+import { Catalog } from './Catalog/Catalog.jsx';
 
-import "./main.css";
+import './main.css';
 
 export const Main = () => {
   return (
-    <div className="main">
+    <main className="main">
       <Aside />
       <Catalog />
-    </div>
+    </main>
   );
 };
