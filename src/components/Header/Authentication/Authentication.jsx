@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import userProfileImage from "../../../../src/img/userProfileImage.png";
 import shoppingCart from "../../../../src/img/shopping-cart.png";
 
-import "./user.css";
+import "./authentication.css";
 
-export const User = ({ isLoggetIn }) => {
+export const Authentication = ({ isLoggetIn }) => {
   const [isCorrectToken, setIsCorrectToken] = useState(isLoggetIn);
 
   const checkValue = () => {
@@ -22,8 +22,8 @@ export const User = ({ isLoggetIn }) => {
   }, [isLoggetIn]);
 
   return (
-    <div className="user">
-      <img src={userProfileImage} alt="login" className="userProfileImage" />
+    <div className="authentication">
+      <img src={userProfileImage} alt="login" className="userImage" />
       <Link to={isCorrectToken ? "/profile" : "/signup"} className="login-link">
         {isCorrectToken ? "Profile" : "Login"}
       </Link>
