@@ -23,21 +23,22 @@ export const Card = () => {
   const { data } = useQuery(query);
 
   return (
-    <div className="card-holder">
+    <div className="cards-holder">
       {data &&
         data.GoodFind.filter((product) => product.images)
           .filter((product) => product.name)
-          .filter((product) => product.description)
+          //   .filter((product) => product.description)
           .filter((product) => product.price)
           .map((product, i) => {
             return (
               <div key={i} className="card">
-                <img src={link + product.images[0].url} alt="product" />
-                <div>
-                  <h4>Name:</h4> {product.name}
+                <div className="card-img">
+                  <img src={link + product.images[0].url} alt="product" />
                 </div>
-                <p>Description: {product.description}</p>
-                <span>Price : {product.price}</span>
+                <div>
+                  <h4> {product.name}</h4>
+                </div>
+                <span> Цена: {product.price}</span>
               </div>
             );
           })}

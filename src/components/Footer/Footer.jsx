@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import "./footer.css";
+import './footer.css';
 
 export const Footer = () => {
   return (
-    <div className="footer-holder">
+    <footer className="footer-holder">
       <div className="footer">Footer</div>
-    </div>
+    </footer>
   );
 };
