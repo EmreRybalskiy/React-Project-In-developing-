@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Aside } from './Aside/Aside.jsx';
 import { Catalog } from './Catalog/Catalog.jsx';
@@ -6,10 +6,12 @@ import { Catalog } from './Catalog/Catalog.jsx';
 import './main.css';
 
 export const Main = () => {
+  const [selectedProducts, setSelectedProducts] = useState({});
+
   return (
     <main className="main">
-      <Aside />
-      <Catalog />
+      <Aside setSelectedProducts={setSelectedProducts} />
+      <Catalog selectedProducts={selectedProducts} />
     </main>
   );
 };
