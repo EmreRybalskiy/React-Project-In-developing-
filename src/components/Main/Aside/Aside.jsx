@@ -4,20 +4,8 @@ import { Input } from '../../Input/Input.jsx';
 
 import './aside.css';
 
-export const Aside = () => {
+export const Aside = ({ setSelectedProducts }) => {
   const [state, setState] = useState('arrow');
-  const [inputCheck, setInputCheck] = useState({
-    TV: '',
-    Airconditions: '',
-    Smartphones: '',
-    Refrigerators: '',
-    Ovens: '',
-    Pasta: '',
-    Drinks: '',
-    Salads: '',
-    Pizza: '',
-    Sushi: '',
-  });
 
   const dropMenu = () => {
     if (state === 'arrow') {
@@ -28,11 +16,11 @@ export const Aside = () => {
   };
 
   const handlerClick = ({ target }) => {
-    console.log(target);
-    setInputCheck((prev) => ({
-      ...prev,
-      [target.name]: target.value,
-    }));
+    if (target.checked) {
+      setSelectedProducts((prev) => ({ ...prev, [target.name]: true }));
+    } else {
+      setSelectedProducts((prev) => ({ ...prev, [target.name]: false }));
+    }
   };
 
   return (
@@ -51,58 +39,43 @@ export const Aside = () => {
       {state === 'arrow arrow-bottom' && (
         <ul className="category-menu">
           <li>
-            <Input type="checkbox" name="TV" checked={inputCheck} onChange={handlerClick} />
+            <Input type="checkbox" name="TV" onChange={handlerClick} />
             TV's
           </li>
           <li>
-            <Input
-              type="checkbox"
-              name="Airconditions"
-              checked={inputCheck}
-              onChange={handlerClick}
-            />
+            <Input type="checkbox" name="Airconditions" onChange={handlerClick} />
             Airconditions
           </li>
           <li>
-            <Input
-              type="checkbox"
-              name="Smartphones"
-              checked={inputCheck}
-              onChange={handlerClick}
-            />
+            <Input type="checkbox" name="Smartphones" onChange={handlerClick} />
             Smartphones
           </li>
           <li>
-            <Input
-              type="checkbox"
-              name="Refrigerators"
-              checked={inputCheck}
-              onChange={handlerClick}
-            />
+            <Input type="checkbox" name="Refrigerators" onChange={handlerClick} />
             Холодильники
           </li>
           <li>
-            <Input type="checkbox" name="Ovens" checked={inputCheck} onChange={handlerClick} />
+            <Input type="checkbox" name="Ovens" onChange={handlerClick} />
             Духовые шкафы
           </li>
           <li>
-            <Input type="checkbox" name="Pasta" checked={inputCheck} onChange={handlerClick} />
+            <Input type="checkbox" name="Pasta" onChange={handlerClick} />
             Макароны
           </li>
           <li>
-            <Input type="checkbox" name="Drinks" checked={inputCheck} onChange={handlerClick} />
+            <Input type="checkbox" name="Drinks" onChange={handlerClick} />
             Drinks
           </li>
           <li>
-            <Input type="checkbox" name="Salads" checked={inputCheck} onChange={handlerClick} />
+            <Input type="checkbox" name="Salads" onChange={handlerClick} />
             Салаты
           </li>
           <li>
-            <Input type="checkbox" name="Pizza" checked={inputCheck} onChange={handlerClick} />
+            <Input type="checkbox" name="Pizza" onChange={handlerClick} />
             Пицца
           </li>
           <li>
-            <Input type="checkbox" name="Sushi" checked={inputCheck} onChange={handlerClick} />
+            <Input type="checkbox" name="Sushi" onChange={handlerClick} />
             Сушка
           </li>
         </ul>
