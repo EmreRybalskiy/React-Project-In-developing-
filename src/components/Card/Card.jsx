@@ -1,47 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
+import { QUERY_PRODUCT } from './query.js';
 
 import './card.css';
 
-export const Card = () => {
-  const query = gql`
-    query gfa {
-      GoodFind(query: "[{}]") {
-        images {
-          url
-        }
-        name
-        price
-        description
-      }
-    }
-  `;
+const link = '//shop-roles.asmer.fs.a-level.com.ua/';
 
-  const link = '//shop-roles.asmer.fs.a-level.com.ua/';
+export const Card = ({setFromInput}) => {
+  const [nameProduct, setNameProduct] = useState('Smartphones');
+  const { data } = useQuery(QUERY_PRODUCT);
 
-  const { data } = useQuery(query);
+  const AllProducts =
+    data && data.CategoryFind.reduce((arr, { goods }) => (goods ? [...arr, ...goods] : arr), []);
+
+  // useEffect(() => {
+  //   setState(nameProduct);
+  // }, [nameProduct]);
 
   return (
     <div className="cards-holder">
-      {data &&
-        data.GoodFind.filter((product) => product.images)
-          .filter((product) => product.name)
-          //   .filter((product) => product.description)
-          .filter((product) => product.price)
-          .map((product, i) => {
-            return (
-              <div key={i} className="card">
-                <div className="card-img">
-                  <img src={link + product.images[0].url} alt="product" />
-                </div>
-                <div>
-                  <h4> {product.name}</h4>
-                </div>
-                <span> Цена: {product.price}</span>
-              </div>
-            );
-          })}
+      {AllProducts.map((product, i) => {
+        if (product.categories[0].name === nameProduct)
+          return (
+            <div key={i} className="card">
+              <img src={link + product.images[0].url} alt="product" />
+              <div>{product.name}</div>
+              <div>{product.descriptions}</div>
+              <div>{product.price}</div>
+            </div>
+          );
+      })}
     </div>
   );
 };
