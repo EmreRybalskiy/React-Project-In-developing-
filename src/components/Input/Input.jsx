@@ -9,6 +9,7 @@ export const Input = (props) => {
       name={props.name}
       className={props.class}
       onChange={props.onChange}
+      checked={props.checked}
     />
   );
 };
