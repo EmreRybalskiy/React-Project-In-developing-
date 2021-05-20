@@ -8,21 +8,23 @@ import './catalog.css';
 
 const link = '//shop-roles.asmer.fs.a-level.com.ua/';
 
-export const Catalog = ({ selectedProducts }) => {
+export const Catalog = ({ selectedProducts, filterPrice, searchProduct }) => {
   const { data, loading } = useQuery(QUERY_PRODUCT, {
     variables: {
-      query: JSON.stringify([{ name: 'Smartphones' }]),
+      query: JSON.stringify(selectedProducts.length ? [{ $or: selectedProducts }] : [{}]),
     },
   });
 
   const AllProducts =
-    data && data.CategoryFind.reduce((arr, { goods }) => (goods ? [...arr, ...goods] : arr), []);
+    data &&
+    data.CategoryFind.reduce((arr, { goods }) => (goods ? [...arr, ...goods] : arr), []).filter(
+      (product) => product.price >= filterPrice.min && product.price <= filterPrice.max,
+    );
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  console.log(selectedProducts, 'CATALOG', AllProducts);
   return (
     <div className="catalog-holder">
       <div className="cards-holder">

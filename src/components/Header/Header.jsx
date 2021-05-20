@@ -9,13 +9,13 @@ import { Authentication } from './Authentication/Authentication.jsx';
 
 import './header.css';
 
-export const Header = ({ isLoggetIn }) => {
+export const Header = ({ isLoggetIn, handleSearchClick }) => {
   return (
     <header className="header-holder">
       <div className="header">
         <Logo />
         <NavBar />
-        <Search />
+        <Search handleSearchClick={handleSearchClick} />
         <Contact />
         <Theme />
         <Authentication isLoggetIn={isLoggetIn} />
